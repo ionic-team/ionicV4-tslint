@@ -148,8 +148,8 @@ We are looking for contributors to help build these rules out! We have not relea
 </tr>
 <tr>
     <th rowspan="4"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item">Item</a></th>
-    <td>:black_square_button: <code>ion-item-is-now-an-element</code></td>
-    <td></td>
+    <td>:white_check_mark: <code>ion-item-is-now-an-element</code></td>
+    <td><a href="https://github.com/dwieeb">@dwieeb</a></td>
 </tr>
 <tr>
     <td>:black_square_button: <code>ion-item-ion-label-is-now-required</code></td>
