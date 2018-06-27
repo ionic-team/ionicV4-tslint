@@ -125,8 +125,8 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 </tr>
 <tr>
     <th rowspan="3"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#fab">FAB</a></th>
-    <td>:black_square_button: <code>ion-fab-button-is-now-an-element</code></td>
-    <td></td>
+    <td>:white_check_mark: <code>ion-fab-button-is-now-an-element</code></td>
+    <td><a href="https://github.com/dwieeb">@dwieeb</a></td>
 </tr>
 <tr>
     <td>:black_square_button: <code>ion-fab-attributes-are-renamed</code></td>
