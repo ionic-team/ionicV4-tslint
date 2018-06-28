@@ -4,7 +4,7 @@
   "description": "TSLint rules for Ionic Angular v4 Migration",
   "main": "rules/index.js",
   "scripts": {
-    "clean": "rimraf dist rules 'test/**/*.js' coverage test-results.xml .nyc_output",
+    "clean": "rimraf dist rules 'src/**/*.js' 'test/**/*.js' coverage test-results.xml .nyc_output",
     "format:base": "prettier --config ./.prettierrc \"*.{json}\" \"src/**/*.{css,scss,ts}\" \"test/**/*.{css,scss,ts}\"",
     "format:check": "npm run format:base -- --list-different",
     "format:fix": "npm run format:base -- --write",

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Replacement } from 'tslint';
-import { ruleName } from '../src/ionActionSheetTitleAndSubtitleAreNowHeaderAndSubHeaderRule';
+import { ruleName } from '../src/ionAlertMethodCreateParametersRenamedRule';
 import { assertAnnotated, assertSuccess } from './testHelper';
 
 describe(ruleName, () => {
@@ -8,31 +8,31 @@ describe(ruleName, () => {
     it('should work with proper style', () => {
       let source = `
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             header: 'This is the title',
             subHeader: 'this is the sub title'
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
         `;
       assertSuccess(ruleName, source);
     });
 
-    it('should work with different names for the ActionSheetController object', () => {
+    it('should work with different names for the AlertController object', () => {
       let source = `
       class DoSomething{
-        constructor(private myOtherNamedActionSheetCtrl: ActionSheetController){}
+        constructor(private myOtherNamedalertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await myOtherNamedActionSheetCtrl.create({
+        function showAlert(){
+          const alert = await myOtherNamedalertCtrl.create({
             header: 'This is the title',
             subHeader: 'this is the sub title'
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
         `;
@@ -44,15 +44,15 @@ describe(ruleName, () => {
     it('should fail when title is passed in', () => {
       let source = `
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             title: 'This is the title',
             ~~~~~
             subTitle: 'this is the sub title'            
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
           `;
@@ -67,15 +67,15 @@ describe(ruleName, () => {
     it('should fail when subTitle is passed in', () => {
       let source = `
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             header: 'This is the title',            
             subTitle: 'this is the sub title'            
             ~~~~~~~~
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
           `;
@@ -90,16 +90,16 @@ describe(ruleName, () => {
     it('should fail no matter where the constructor is placed in code', () => {
       let source = `
       class DoSomething{
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             header: 'This is the title',            
             subTitle: 'this is the sub title'            
             ~~~~~~~~
           });
-          await actionSheet.present();
+          await alert.present();
         }
 
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
       }
           `;
 
@@ -115,15 +115,15 @@ describe(ruleName, () => {
     it('should fail when navbar is passed in', () => {
       let source = `
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             header: 'This is the title',            
             subTitle: 'this is the sub title'
             ~~~~~~~~
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
           `;
@@ -139,15 +139,15 @@ describe(ruleName, () => {
       const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private alertCtrl: AlertController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        function showAlert(){
+          const alert = await alertCtrl.create({
             header: 'This is the title',            
             subHeader: 'this is the sub title'
             ~~~~~~~~
           });
-          await actionSheet.present();
+          await alert.present();
         }
       }
           `);

@@ -26,8 +26,8 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
         "@ionic/v4-migration-tslint/rules"
       ],
       "rules": {
-        "ion-action-sheet-title-and-subtitle-are-now-header-and-sub-header": true,
-        "ion-alert-title-and-subtitle-are-now-header-and-sub-header": true,
+        "ion-action-sheet-method-create-parameters-renamed": true,
+        "ion-alert-method-create-parameters-renamed": true,
         "ion-button-is-now-an-element": true,
         "ion-button-attributes-are-renamed": true,
         "ion-chip-markup-has-changed": true,
@@ -54,207 +54,437 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 ## Rules
 
-:black_square_button: &ndash; These rules need to be completed! See [`CONTRIBUTING.md`](https://github.com/ionic-team/v4-migration-tslint/blob/develop/CONTRIBUTING.md) to get started.
+:white_large_square: &ndash; These rules need to be completed! See [`CONTRIBUTING.md`](https://github.com/ionic-team/v4-migration-tslint/blob/develop/CONTRIBUTING.md) to get started.
 
 :wrench: &ndash; These rules can be automatically fixed with `--fix`.
 
 <table>
-<tr>
+  <tr>
     <th>category</th>
-    <th>rule</th>
+    <th colspan="3">rule</th>
     <th>contributors</th>
-</tr>
-<tr>
-    <th colspan="3">Code Changes</th>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#action-sheet">Action Sheet</a></th>
-    <td>:white_check_mark: <code>ion-action-sheet-title-and-subtitle-are-now-header-and-sub-header</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#alert">Alert</a></th>
-    <td>:white_check_mark: <code>ion-alert-title-and-subtitle-are-now-header-and-sub-header</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#datetime">Datetime</a></th>
-    <td>:black_square_button: <code>ion-datetime-capitalization-changed</code></td>
+  </tr>
+  <tr>
+    <th colspan="5">Code Changes</th>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#action-sheet">Action Sheet</a>
+    </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-action-sheet-method-create-parameters-renamed</code></td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#alert">Alert</a>
+    </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-alert-method-create-parameters-renamed</code></td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#datetime">Datetime</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a></th>
-    <td>:black_square_button: <code>ion-item-option-method-get-sliding-percent-renamed</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-datetime-capitalization-changed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#option">Option</a></th>
-    <td>:black_square_button: <code>ion-option-class-renamed</code></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th rowspan="2"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a></th>
-    <td>:black_square_button: <code>ion-overlay-method-create-should-use-await</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-option-method-get-sliding-percent-renamed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-overlay-method-present-should-use-await</code></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#option">Option</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th colspan="3">Markup Changes</th>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#back-button">Back Button</a></th>
-    <td>:black_square_button: <code>ion-back-button-not-added-by-default</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-option-class-renamed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th rowspan="2"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#button">Button</a></th>
-    <td>:white_check_mark: <code>ion-button-attributes-are-renamed</code></td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <td>:white_check_mark: <code>ion-button-is-now-an-element</code></td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#chip">Chip</a></th>
-    <td>:white_check_mark: <code>ion-chip-markup-has-changed</code></td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th rowspan="3"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#fab">FAB</a></th>
-    <td>:white_check_mark: <code>ion-fab-button-is-now-an-element</code></td>
-    <td><a href="https://github.com/dwieeb">@dwieeb</a></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-fab-attributes-are-renamed</code></td>
+  </tr>
+  <tr>
+    <th rowspan="2">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-fab-fixed-content</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-overlay-method-create-should-use-await</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#grid">Grid</a></th>
-    <td>:black_square_button: <code>ion-grid-attributes-are-renamed</code></td>
+  </tr>
+  <tr>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#icon">Icon</a></th>
-    <td>:black_square_button: <code>ion-icon-property-is-active-is-removed</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-overlay-method-present-should-use-await</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th rowspan="4"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item">Item</a></th>
-    <td>:white_check_mark: <code>ion-item-is-now-an-element</code></td>
-    <td><a href="https://github.com/dwieeb">@dwieeb</a></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-item-ion-label-is-now-required</code></td>
+  </tr>
+  <tr>
+    <th colspan="5">Markup Changes</th>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#back-button">Back Button</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-item-attributes-are-renamed</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-back-button-not-added-by-default</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-item-detail-is-now-single-property</code></td>
+  </tr>
+  <tr>
+    <th rowspan="2">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#button">Button</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-divider">Item Divider</a></th>
-    <td>:black_square_button: <code>ion-item-divider-ion-label-is-now-required</code></td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-button-attributes-are-renamed</code>
+    </td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-options">Item Options</a></th>
-    <td>:black_square_button: <code>ion-item-options-attributes-are-renamed</code></td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-button-is-now-an-element</code>
+    </td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#chip">Chip</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a></th>
-    <td>:black_square_button: <code>ion-item-option-is-now-an-element</code></td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-chip-markup-has-changed</code>
+    </td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th rowspan="3">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#fab">FAB</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#list-header">List Header</a></th>
-    <td>:black_square_button: <code>ion-list-header-ion-label-is-now-required</code></td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-fab-button-is-now-an-element</code>
+    </td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
+  </tr>
+  <tr>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#menu-toggle">Menu Toggle</a></th>
-    <td>:black_square_button: <code>ion-menu-toggle-is-now-an-element</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-fab-attributes-are-renamed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#nav">Nav</a></th>
-    <td>:black_square_button: <code>ion-nav-controller-method-remove-renamed</code></td>
+  </tr>
+  <tr>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#navbar">Navbar</a></th>
-    <td>:white_check_mark: <code>ion-navbar-is-now-ion-toolbar</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#option">Option</a></th>
-    <td>:black_square_button: <code>ion-option-is-now-ion-select-option</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-fab-fixed-content</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th rowspan="2"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#radio">Radio</a></th>
-    <td>:black_square_button: <code>ion-radio-slot-required</code></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#grid">Grid</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <td>:black_square_button: <code>ion-radio-group-is-now-an-element</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-grid-attributes-are-renamed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#range">Range</a></th>
-    <td>:black_square_button: <code>ion-range-attributes-are-renamed</code></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#icon">Icon</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#select">Select</a></th>
-    <td>:black_square_button: <code>ion-select-property-select-options-renamed</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-icon-property-is-active-is-removed</code>
+    </td>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#spinner">Spinner</a></th>
-    <td>:black_square_button: <code>ion-spinner-name-changed</code></td>
+  </tr>
+  <tr>
+    <th rowspan="4">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item">Item</a>
+    </th>
     <td></td>
-</tr>
-<tr>
-    <th rowspan="4"><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#tabs">Tabs</a></th>
-    <td>:white_check_mark: <code>ion-tab-badge-is-now-badge</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <td>:white_check_mark: <code>ion-tab-badge-style-is-now-badge-style</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <td>:white_check_mark: <code>ion-tab-icon-is-now-icon</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <td>:white_check_mark: <code>ion-tab-title-is-now-label</code> :wrench:</td>
-    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#text--typography">Text / Typography</a></th>
-    <td>:black_square_button: <code>ion-text-is-now-an-element</code></td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-item-is-now-an-element</code>
+    </td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
+  </tr>
+  <tr>
     <td></td>
-</tr>
-<tr>
-    <th><a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#toolbar">Toolbar</a></th>
-    <td>:black_square_button: <code>ion-toolbar-attributes-are-renamed</code></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-ion-label-is-now-required</code>
+    </td>
     <td></td>
-</tr>
+  </tr>
+  <tr>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-attributes-are-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-detail-is-now-single-property</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-divider">Item Divider</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-divider-ion-label-is-now-required</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-options">Item Options</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-options-attributes-are-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-item-option-is-now-an-element</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#list-header">List Header</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-list-header-ion-label-is-now-required</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#menu-toggle">Menu Toggle</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-menu-toggle-is-now-an-element</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#nav">Nav</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-nav-controller-method-remove-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#navbar">Navbar</a>
+    </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-navbar-is-now-ion-toolbar</code></td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#option">Option</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-option-is-now-ion-select-option</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th rowspan="2">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#radio">Radio</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-radio-slot-required</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-radio-group-is-now-an-element</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#range">Range</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-range-attributes-are-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#select">Select</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-select-property-select-options-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#spinner">Spinner</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-spinner-name-changed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th rowspan="4">
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#tabs">Tabs</a>
+    </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-tab-badge-is-now-badge</code></td>
+    <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-tab-badge-style-is-now-badge-style</code></td>
+      <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-tab-icon-is-now-icon</code></td>
+      <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-tab-title-is-now-label</code></td>
+      <td>
+      <a href="https://github.com/cwoolum">@cwoolum</a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#text--typography">Text / Typography</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-text-is-now-an-element</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#toolbar">Toolbar</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-toolbar-attributes-are-renamed</code>
+    </td>
+    <td></td>
+  </tr>
 </table>
+
 
 ### Not Covered
 

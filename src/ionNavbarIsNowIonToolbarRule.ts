@@ -8,7 +8,7 @@ import * as ts from 'typescript';
 export const ruleName = 'ion-navbar-is-now-ion-toolbar';
 const InvalidSyntaxBoxOpen = '<ion-navbar>';
 const InvalidSyntaxBoxClose = '</ion-navbar>';
-const InvalidSyntaxBoxRe = new RegExp('<ion-navbar[^>]*>((.|\n)*?)</ion-navbar>', 's');
+const InvalidSyntaxBoxRe = new RegExp('<ion-navbar[^>]*>((.|\n)*?)</ion-navbar>');
 const ValidSyntaxOpen = `<ion-toolbar>
   <ion-buttons slot="start">
     <ion-back-button></ion-back-button>
