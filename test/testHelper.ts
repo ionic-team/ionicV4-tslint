@@ -244,7 +244,12 @@ export function assertFailure(
  * @param fails
  * @param options
  */
-export function assertFailures(ruleName: string, source: string | ts.SourceFile, fails: IExpectedFailure[], options = null) {
+export function assertFailures(
+  ruleName: string,
+  source: string | ts.SourceFile,
+  fails: IExpectedFailure[],
+  options = null
+): Lint.RuleFailure[] {
   let result;
   try {
     result = lint(ruleName, source, options);
@@ -257,6 +262,7 @@ export function assertFailures(ruleName: string, source: string | ts.SourceFile,
     chai.assert.deepEqual(fails[index].startPosition, ruleFail.getStartPosition().getLineAndCharacter(), "start char doesn't match");
     chai.assert.deepEqual(fails[index].endPosition, ruleFail.getEndPosition().getLineAndCharacter(), "end char doesn't match");
   });
+  return result.failures;
 }
 
 /**
