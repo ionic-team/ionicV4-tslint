@@ -41,6 +41,7 @@ describe(ruleName, () => {
             </button>
           </ion-item-options>
         </ion-item-sliding>
+        \`
       })
       class Bar{}
           `;
