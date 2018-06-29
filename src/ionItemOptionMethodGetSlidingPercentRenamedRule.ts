@@ -6,7 +6,6 @@ export const ruleMessage = '"getSlidingPercent" has been renamed to "getSlidingR
 class GetSlidingPercentRenamedWalker extends Lint.RuleWalker {
   visitCallExpression(node: ts.CallExpression) {
     const expression = node.expression as any;
-    console.log(expression.name);
     if (expression.name && expression.name.text === 'getSlidingPercent') {
       const replacement = new Lint.Replacement(expression.name.getStart(), expression.name.getWidth(), 'getSlidingRatio');
       this.addFailure(this.createFailure(expression.name.getStart(), expression.name.getWidth(), ruleMessage, replacement));
