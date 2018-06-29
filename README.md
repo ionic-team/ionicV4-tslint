@@ -95,12 +95,14 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#datetime">Datetime</a>
     </th>
-    <td></td>
-    <td>:white_large_square:</td>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-datetime-capitalization-changed</code>
     </td>
-    <td></td>
+    <td>
+      <a href="https://github.com/mhartington">@mhartington</a>
+    </td>
   </tr>
   <tr>
     <th>
@@ -303,14 +305,16 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <td>
       <code>ion-item-options-attributes-are-renamed</code>
     </td>
-    <td></td>
+    <td>
+      <a href="https://github.com/mhartington">@mhartington</a>
+    </td>
   </tr>
   <tr>
     <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a>
     </th>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-item-option-is-now-an-element</code>
     </td>

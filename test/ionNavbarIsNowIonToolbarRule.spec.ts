@@ -1,5 +1,5 @@
 import { assertSuccess, assertAnnotated, assertFailure } from './testHelper';
-import { Replacement, RuleFailure } from 'tslint';
+import { Replacement, Utils } from 'tslint';
 import { expect } from 'chai';
 import { ruleName } from '../src/ionNavbarIsNowIonToolbarRule';
 
@@ -92,11 +92,10 @@ describe(ruleName, () => {
         }
       };
 
-      const failures: RuleFailure[] = assertFailure(ruleName, source, fail);
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
-
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
             @Component({
               template: \` <ion-toolbar>
@@ -131,11 +130,10 @@ describe(ruleName, () => {
         }
       };
 
-      const failures: RuleFailure[] = assertFailure(ruleName, source, fail);
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
-
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
             @Component({
               template: \` <ion-toolbar>
@@ -173,11 +171,10 @@ describe(ruleName, () => {
         }
       };
 
-      const failures: RuleFailure[] = assertFailure(ruleName, source, fail);
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
-
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
             @Component({
               template: \`
@@ -215,11 +212,10 @@ describe(ruleName, () => {
         }
       };
 
-      const failures: RuleFailure[] = assertFailure(ruleName, source, fail);
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
-
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
             @Component({
               template: \`
@@ -266,11 +262,10 @@ describe(ruleName, () => {
         }
       };
 
-      const failures: RuleFailure[] = assertFailure(ruleName, source, fail);
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
-
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
             @Component({
               template: \`
