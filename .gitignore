@@ -60,5 +60,8 @@ typings/
 # dotenv environment variables file
 .env
 
-dist
+src/**/*.js
+test/**/*.js
+rules
+package-lock.json
 .vscode

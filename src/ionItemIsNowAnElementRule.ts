@@ -1,6 +1,6 @@
 import { createDirectiveToElementRuleClass } from './helpers/directiveToElement';
 
-const directive = 'ion-button';
+const directive = 'ion-item';
 
-export const ruleName = 'ion-button-is-now-an-element';
+export const ruleName = 'ion-item-is-now-an-element';
 export const Rule = createDirectiveToElementRuleClass(ruleName, directive);

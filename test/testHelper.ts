@@ -46,7 +46,7 @@ function lint(ruleName: string, source: string | ts.SourceFile, options: any): t
   configuration.rules.set(ruleName, ops);
   const linterOptions: tslint.ILinterOptions = {
     formatter: 'json',
-    rulesDirectory: './dist/src',
+    rulesDirectory: './rules',
     formattersDirectory: null,
     fix: false
   };

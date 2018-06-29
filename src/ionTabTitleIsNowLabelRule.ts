@@ -52,11 +52,6 @@ export class Rule extends Lint.Rules.AbstractRule {
     hasFix: true
   };
 
-  constructor(options: IOptions) {
-    options.ruleSeverity = 'error';
-    super(options);
-  }
-
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(
       new NgWalker(sourceFile, this.getOptions(), {

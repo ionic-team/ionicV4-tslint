@@ -2,14 +2,12 @@ import * as Lint from 'tslint';
 import { IOptions, Replacement } from 'tslint';
 import * as ts from 'typescript';
 
-export const ruleName = 'ion-alert-title-and-subtitle-are-now-header-and-sub-header';
+export const ruleName = 'ion-alert-method-create-parameters-renamed';
 
 /**
  * This rule helps with the conversion of the AlertController API.
- * @class AlertTitleAndSubtitleAreNowHeaderAndSubheaderWalker
- * @extends {Lint.RuleWalker}
  */
-class AlertTitleAndSubtitleAreNowHeaderAndSubheaderWalker extends Lint.RuleWalker {
+class AlertMethodCreateParametersRenamedWalker extends Lint.RuleWalker {
   foundPropertyArray = [];
 
   visitCallExpression(node: ts.CallExpression) {
@@ -58,12 +56,7 @@ export class Rule extends Lint.Rules.AbstractRule {
     hasFix: true
   };
 
-  constructor(options: IOptions) {
-    options.ruleSeverity = 'error';
-    super(options);
-  }
-
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
-    return this.applyWithWalker(new AlertTitleAndSubtitleAreNowHeaderAndSubheaderWalker(sourceFile, this.getOptions()));
+    return this.applyWithWalker(new AlertMethodCreateParametersRenamedWalker(sourceFile, this.getOptions()));
   }
 }

@@ -3,7 +3,6 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./rules",
     "pretty": true,
     "strict": false,
     "target": "es6",
@@ -12,6 +11,6 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "test/**/*.ts"
   ]
 }
