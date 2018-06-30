@@ -22,6 +22,25 @@ describe(ruleName, () => {
       assertSuccess(ruleName, source);
     });
 
+    it('should not be triggered if the type is not AlertController', () => {
+      debugger;
+
+      let source = `
+      class DoSomething{
+        constructor(private actionSheetCtrl: SomeOtherController){}
+
+        function showActionSheet(){
+          const actionSheet = await actionSheetCtrl.create({
+            title: 'This is the title',
+            subTitle: 'this is the sub title'
+          });
+          await actionSheet.present();
+        }
+      }
+        `;
+      assertSuccess(ruleName, source);
+    });
+
     it('should work with different names for the AlertController object', () => {
       let source = `
       class DoSomething{
@@ -77,29 +96,6 @@ describe(ruleName, () => {
           });
           await alert.present();
         }
-      }
-          `;
-
-      assertAnnotated({
-        ruleName,
-        message: 'The subTitle field has been replaced by subHeader.',
-        source
-      });
-    });
-
-    it('should fail no matter where the constructor is placed in code', () => {
-      let source = `
-      class DoSomething{
-        function showAlert(){
-          const alert = await alertCtrl.create({
-            header: 'This is the title',            
-            subTitle: 'this is the sub title'            
-            ~~~~~~~~
-          });
-          await alert.present();
-        }
-
-        constructor(private alertCtrl: AlertController){}
       }
           `;
 
