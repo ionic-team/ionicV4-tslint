@@ -95,7 +95,8 @@
   "nyc": {
     "report-dir": "./coverage",
     "exclude": [
-      "test/*.js"
+      "test/*.js",
+      "src/**/*.js"
     ]
   },
   "config": {
