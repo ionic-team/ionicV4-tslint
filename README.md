@@ -370,9 +370,19 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <td></td>
   </tr>
   <tr>
-    <th rowspan="2">
+    <th rowspan="3">
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#radio">Radio</a>
     </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-radio-attributes-renamed</code>
+    </td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
+  </tr>
+  <tr>
     <td></td>
     <td>:white_large_square:</td>
     <td>
