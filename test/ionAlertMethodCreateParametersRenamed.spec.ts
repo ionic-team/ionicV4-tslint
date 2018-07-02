@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { Replacement } from 'tslint';
+import { Replacement, Utils } from 'tslint';
 import { ruleName } from '../src/ionAlertMethodCreateParametersRenamedRule';
-import { assertAnnotated, assertSuccess } from './testHelper';
+import { assertAnnotated, assertFailures, assertSuccess } from './testHelper';
 
 describe(ruleName, () => {
   describe('success', () => {
@@ -10,8 +10,8 @@ describe(ruleName, () => {
       class DoSomething{
         constructor(private alertCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await alertCtrl.create({
+        showAlert(){
+          const alert = await this.alertCtrl.create({
             header: 'This is the title',
             subHeader: 'this is the sub title'
           });
@@ -23,14 +23,12 @@ describe(ruleName, () => {
     });
 
     it('should not be triggered if the type is not AlertController', () => {
-      debugger;
-
       let source = `
       class DoSomething{
         constructor(private actionSheetCtrl: SomeOtherController){}
 
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
+        showActionSheet(){
+          const actionSheet = await this.actionSheetCtrl.create({
             title: 'This is the title',
             subTitle: 'this is the sub title'
           });
@@ -44,10 +42,10 @@ describe(ruleName, () => {
     it('should work with different names for the AlertController object', () => {
       let source = `
       class DoSomething{
-        constructor(private myOtherNamedalertCtrl: AlertController){}
+        constructor(private myOtherNamedCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await myOtherNamedalertCtrl.create({
+        showAlert(){
+          const alert = await this.myOtherNamedCtrl.create({
             header: 'This is the title',
             subHeader: 'this is the sub title'
           });
@@ -65,8 +63,8 @@ describe(ruleName, () => {
       class DoSomething{
         constructor(private alertCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await alertCtrl.create({
+        showAlert(){
+          const alert = await this.alertCtrl.create({
             title: 'This is the title',
             ~~~~~
             subTitle: 'this is the sub title'            
@@ -78,7 +76,7 @@ describe(ruleName, () => {
 
       assertAnnotated({
         ruleName,
-        message: 'The title field has been replaced by header.',
+        message: 'Property title has been renamed to header.',
         source
       });
     });
@@ -88,8 +86,8 @@ describe(ruleName, () => {
       class DoSomething{
         constructor(private alertCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await alertCtrl.create({
+        showAlert(){
+          const alert = await this.alertCtrl.create({
             header: 'This is the title',            
             subTitle: 'this is the sub title'            
             ~~~~~~~~
@@ -101,47 +99,64 @@ describe(ruleName, () => {
 
       assertAnnotated({
         ruleName,
-        message: 'The subTitle field has been replaced by subHeader.',
+        message: 'Property subTitle has been renamed to subHeader.',
         source
       });
     });
   });
 
   describe('replacements', () => {
-    it('should fail when navbar is passed in', () => {
+    it('should replace multiple', () => {
       let source = `
       class DoSomething{
         constructor(private alertCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await alertCtrl.create({
-            header: 'This is the title',            
+        showAlert(){
+          const alert = await this.alertCtrl.create({
+            title: 'This is the title',            
             subTitle: 'this is the sub title'
-            ~~~~~~~~
           });
           await alert.present();
         }
       }
           `;
 
-      const failures = assertAnnotated({
-        ruleName,
-        message: 'The subTitle field has been replaced by subHeader.',
-        source
-      });
+      const failures = assertFailures(ruleName, source, [
+        {
+          message: 'Property title has been renamed to header.',
+          startPosition: {
+            line: 6,
+            character: 12
+          },
+          endPosition: {
+            line: 6,
+            character: 17
+          }
+        },
+        {
+          message: 'Property subTitle has been renamed to subHeader.',
+          startPosition: {
+            line: 7,
+            character: 12
+          },
+          endPosition: {
+            line: 7,
+            character: 20
+          }
+        }
+      ]);
 
-      const fixes: Replacement[] = failures[0].getFix() as any;
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
 
-      const res = Replacement.applyAll(source, fixes);
       expect(res).to.eq(`
       class DoSomething{
         constructor(private alertCtrl: AlertController){}
 
-        function showAlert(){
-          const alert = await alertCtrl.create({
+        showAlert(){
+          const alert = await this.alertCtrl.create({
             header: 'This is the title',            
             subHeader: 'this is the sub title'
-            ~~~~~~~~
           });
           await alert.present();
         }
