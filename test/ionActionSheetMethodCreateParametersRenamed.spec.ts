@@ -22,6 +22,25 @@ describe(ruleName, () => {
       assertSuccess(ruleName, source);
     });
 
+    it('should not be triggered if the type is not ActionSheetController', () => {
+      debugger;
+
+      let source = `
+      class DoSomething{
+        constructor(private actionSheetCtrl: SomeOtherController){}
+
+        function showActionSheet(){
+          const actionSheet = await actionSheetCtrl.create({
+            title: 'This is the title',
+            subTitle: 'this is the sub title'
+          });
+          await actionSheet.present();
+        }
+      }
+        `;
+      assertSuccess(ruleName, source);
+    });
+
     it('should work with different names for the ActionSheetController object', () => {
       let source = `
       class DoSomething{
@@ -44,7 +63,9 @@ describe(ruleName, () => {
     it('should fail when title is passed in', () => {
       let source = `
       class DoSomething{
-        constructor(private actionSheetCtrl: ActionSheetController){}
+        constructor(private actionSheetCtrl: ActionSheetController){
+
+        }
 
         function showActionSheet(){
           const actionSheet = await actionSheetCtrl.create({
@@ -77,29 +98,6 @@ describe(ruleName, () => {
           });
           await actionSheet.present();
         }
-      }
-          `;
-
-      assertAnnotated({
-        ruleName,
-        message: 'The subTitle field has been replaced by subHeader.',
-        source
-      });
-    });
-
-    it('should fail no matter where the constructor is placed in code', () => {
-      let source = `
-      class DoSomething{
-        function showActionSheet(){
-          const actionSheet = await actionSheetCtrl.create({
-            header: 'This is the title',            
-            subTitle: 'this is the sub title'            
-            ~~~~~~~~
-          });
-          await actionSheet.present();
-        }
-
-        constructor(private actionSheetCtrl: ActionSheetController){}
       }
           `;
 

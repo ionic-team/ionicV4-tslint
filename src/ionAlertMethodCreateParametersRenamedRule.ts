@@ -1,5 +1,5 @@
 import * as Lint from 'tslint';
-import { IOptions, Replacement } from 'tslint';
+import { Replacement } from 'tslint';
 import * as ts from 'typescript';
 
 export const ruleName = 'ion-alert-method-create-parameters-renamed';
@@ -8,7 +8,23 @@ export const ruleName = 'ion-alert-method-create-parameters-renamed';
  * This rule helps with the conversion of the AlertController API.
  */
 class AlertMethodCreateParametersRenamedWalker extends Lint.RuleWalker {
-  foundPropertyArray = [];
+  private details = {
+    actionControllerVariableName: '',
+    foundPropertyArray: []
+  };
+
+  visitConstructorDeclaration(node: ts.ConstructorDeclaration) {
+    debugger;
+
+    for (let element of node.parameters) {
+      const typeName = element.type.getFullText().trim();
+      if (typeName === 'AlertController') {
+        this.details.actionControllerVariableName = (element.name as any).escapedText;
+        this.tryAddFailure();
+        break;
+      }
+    }
+  }
 
   visitCallExpression(node: ts.CallExpression) {
     const expression = node.expression as any;
@@ -21,7 +37,7 @@ class AlertMethodCreateParametersRenamedWalker extends Lint.RuleWalker {
           case 'title':
           case 'subTitle':
             argument.parentVariableName = (node.expression as any).expression.text;
-            this.foundPropertyArray.push(argument);
+            this.details.foundPropertyArray.push(argument);
             this.tryAddFailure();
             break;
         }
@@ -30,17 +46,26 @@ class AlertMethodCreateParametersRenamedWalker extends Lint.RuleWalker {
   }
 
   private tryAddFailure() {
-    for (let i = this.foundPropertyArray.length - 1; i >= 0; i--) {
-      let argument = this.foundPropertyArray[i];
+    // Don't process until the actionControllerVariableName has been found
+
+    if (!this.details.actionControllerVariableName) {
+      return;
+    }
+
+    for (let i = this.details.foundPropertyArray.length - 1; i >= 0; i--) {
+      let argument = this.details.foundPropertyArray[i];
 
       const replacementParam = argument.name.text === 'title' ? 'header' : 'subHeader';
 
-      const errorMessage = `The ${argument.name.text} field has been replaced by ${replacementParam}.`;
+      console.log(this.details.actionControllerVariableName, argument.parentVariableName);
+      if (this.details.actionControllerVariableName && this.details.actionControllerVariableName === argument.parentVariableName) {
+        const errorMessage = `The ${argument.name.text} field has been replaced by ${replacementParam}.`;
 
-      const replacement = new Replacement(argument.name.getStart(), argument.name.getWidth(), replacementParam);
+        const replacement = new Replacement(argument.name.getStart(), argument.name.getWidth(), replacementParam);
 
-      this.addFailure(this.createFailure(argument.name.getStart(), argument.name.getWidth(), errorMessage, [replacement]));
-      this.foundPropertyArray.splice(i, 1);
+        this.addFailure(this.createFailure(argument.name.getStart(), argument.name.getWidth(), errorMessage, [replacement]));
+        this.details.foundPropertyArray.splice(i, 1);
+      }
     }
   }
 }
