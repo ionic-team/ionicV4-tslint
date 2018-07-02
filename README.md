@@ -35,7 +35,6 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
         "ion-fab-button-is-now-an-element": true,
         "ion-fab-attributes-renamed": true,
         "ion-item-is-now-an-element": true,
-        "ion-item-option-is-now-an-element": true,
         "ion-navbar-is-now-ion-toolbar": true,
         "ion-tab-attributes-renamed": true
       }
@@ -308,7 +307,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a>
     </th>
     <td></td>
-    <td>:white_check_mark:</td>
+    <td>:white_large_square:</td>
     <td>
       <code>ion-item-option-is-now-an-element</code>
     </td>
