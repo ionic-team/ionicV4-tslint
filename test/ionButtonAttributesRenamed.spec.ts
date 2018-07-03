@@ -8,7 +8,7 @@ describe(ruleName, () => {
     it('should work with proper style', () => {
       let source = `
       @Component({
-        template: \`<ion-button slot="start"><ion-button>\`
+        template: \`<ion-button slot="start"></ion-button>\`
       })
       class Bar{}
         `;
