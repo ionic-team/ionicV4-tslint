@@ -28,6 +28,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       "rules": {
         "ion-action-sheet-method-create-parameters-renamed": true,
         "ion-alert-method-create-parameters-renamed": true,
+        "ion-back-button-not-added-by-default": { "options": [true], "severity": "warning" },
         "ion-button-attributes-renamed": true,
         "ion-button-is-now-an-element": true,
         "ion-chip-markup-has-changed": true,
