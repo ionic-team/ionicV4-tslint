@@ -219,12 +219,14 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     </td>
   </tr>
   <tr>
-    <td></td>
-    <td>:white_large_square:</td>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-fab-fixed-content</code>
     </td>
-    <td></td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
   </tr>
   <tr>
     <th>
