@@ -118,6 +118,17 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
   </tr>
   <tr>
     <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#nav">Nav</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-nav-controller-method-remove-renamed</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#option">Option</a>
     </th>
     <td></td>
@@ -154,11 +165,13 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#back-button">Back Button</a>
     </th>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-back-button-not-added-by-default</code>
     </td>
-    <td></td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
   </tr>
   <tr>
     <th rowspan="2">
@@ -349,17 +362,6 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <td>:white_large_square:</td>
     <td>
       <code>ion-menu-toggle-is-now-an-element</code>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <th>
-      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#nav">Nav</a>
-    </th>
-    <td></td>
-    <td>:white_large_square:</td>
-    <td>
-      <code>ion-nav-controller-method-remove-renamed</code>
     </td>
     <td></td>
   </tr>
