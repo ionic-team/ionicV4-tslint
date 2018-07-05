@@ -13,7 +13,7 @@ const replacementMap = new Map([
   ['item-right', 'slot="end"']
 ]);
 
-const IonFabAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-item', replacementMap);
+const IonItemAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-item', replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
@@ -29,7 +29,7 @@ export class Rule extends Lint.Rules.AbstractRule {
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(
       new NgWalker(sourceFile, this.getOptions(), {
-        templateVisitorCtrl: IonFabAttributesRenamedTemplateVisitor
+        templateVisitorCtrl: IonItemAttributesRenamedTemplateVisitor
       })
     );
   }
