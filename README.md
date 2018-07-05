@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ionic-team/v4-migration-tslint/badge.svg?branch=master)](https://coveralls.io/github/ionic-team/v4-migration-tslint?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-An effort to automatically fix syntax changes listed in [`BREAKING.md`](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md) using tslint + codelyzer.
+An effort to warn about and automatically fix syntax changes listed in [`BREAKING.md`](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md) using tslint, codelyzer, and the Angular compiler.
 
 We are looking for contributors to help build these rules out! See [`CONTRIBUTING.md`](https://github.com/ionic-team/v4-migration-tslint/blob/develop/CONTRIBUTING.md) to help out. :sparkling_heart:
 
@@ -310,6 +310,17 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <td>:white_large_square:</td>
     <td>
       <code>ion-item-option-is-now-an-element</code>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#label">Label</a>
+    </th>
+    <td></td>
+    <td>:white_large_square:</td>
+    <td>
+      <code>ion-label-attributes-renamed</code>
     </td>
     <td></td>
   </tr>
