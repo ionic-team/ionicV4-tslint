@@ -281,11 +281,13 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
   </tr>
   <tr>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
-      <code>ion-item-ion-label-is-now-required</code>
+      <code>ion-item-ion-label-required</code>
     </td>
-    <td></td>
+    <td>
+      <a href="https://github.com/dwieeb">@dwieeb</a>
+    </td>
   </tr>
   <tr>
     <td></td>
