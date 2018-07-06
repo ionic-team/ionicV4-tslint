@@ -8,7 +8,7 @@ export const ruleName = 'ion-tab-attributes-renamed';
 
 const replacementMap = new Map([['tabTitle', 'label'], ['tabIcon', 'icon'], ['tabBadge', 'badge'], ['tabBadgeStyle', 'badgeStyle']]);
 
-const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-tab', replacementMap);
+const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-tab'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {

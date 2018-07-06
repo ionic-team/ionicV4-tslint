@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Replacement, Utils } from 'tslint';
-import { ruleName } from '../src/ionItemAttributesRenamedRule';
+import { ruleName } from '../src/ionButtonsAttributesRenamedRule';
 import { assertAnnotated, assertFailure, assertFailures, assertMultipleAnnotated, assertSuccess } from './testHelper';
 
 describe(ruleName, () => {
@@ -8,7 +8,11 @@ describe(ruleName, () => {
     it('should work with proper style', () => {
       let source = `
       @Component({
-        template: \`<ion-item slot="start"></ion-item>\`
+        template: \`
+          <ion-buttons slot="secondary">
+            <ion-button>Secondary</ion-button>
+          </ion-buttons>
+        \`
       })
       class Bar{}
         `;
@@ -17,94 +21,109 @@ describe(ruleName, () => {
   });
 
   describe('failure', () => {
-    it('should fail when item-start is used', () => {
+    it('should fail when start is used', () => {
       let source = `
       @Component({
         template: \`
-          <ion-item item-start></ion-item>\`
-                    ~~~~~~~~~~
+          <ion-buttons start>
+                       ~~~~~
+            <ion-button>Secondary</ion-button>
+          </ion-buttons>
+        \`
       })
       class Bar{}
           `;
 
       assertAnnotated({
         ruleName,
-        message: 'The item-start attribute of ion-item has been renamed. Use slot="start" instead.',
+        message: 'The start attribute of ion-buttons has been renamed. Use slot="secondary" instead.',
         source
       });
     });
 
-    it('should fail when item-left is used', () => {
+    it('should fail when end is used', () => {
       let source = `
       @Component({
         template: \`
-          <ion-item item-left></ion-item>\`
-                    ~~~~~~~~~
+          <ion-buttons end>
+                       ~~~
+            <ion-button>Primary</ion-button>
+          </ion-buttons>
+        \`
       })
       class Bar{}
           `;
 
       assertAnnotated({
         ruleName,
-        message: 'The item-left attribute of ion-item has been renamed. Use slot="start" instead.',
+        message: 'The end attribute of ion-buttons has been renamed. Use slot="primary" instead.',
         source
       });
     });
 
-    it('should fail when item-right is used', () => {
+    it('should fail when left is used', () => {
       let source = `
       @Component({
         template: \`
-          <ion-item item-right></ion-item>\`
-                    ~~~~~~~~~~
+          <ion-buttons left>
+                       ~~~~
+            <ion-button>Left</ion-button>
+          </ion-buttons>
+        \`
       })
       class Bar{}
           `;
 
       assertAnnotated({
         ruleName,
-        message: 'The item-right attribute of ion-item has been renamed. Use slot="end" instead.',
+        message: 'The left attribute of ion-buttons has been renamed. Use slot="start" instead.',
         source
       });
     });
 
-    it('should fail when item-end is used', () => {
+    it('should fail when right is used', () => {
       let source = `
       @Component({
         template: \`
-          <ion-item item-end></ion-item>\`
-                    ~~~~~~~~
+          <ion-buttons right>
+                       ~~~~~
+            <ion-button>Right</ion-button>
+          </ion-buttons>
+        \`
       })
       class Bar{}
           `;
 
       assertAnnotated({
         ruleName,
-        message: 'The item-end attribute of ion-item has been renamed. Use slot="end" instead.',
+        message: 'The right attribute of ion-buttons has been renamed. Use slot="end" instead.',
         source
       });
     });
   });
 
   describe('replacements', () => {
-    it('should replace item-start with slot="start"', () => {
+    it('should replace start with slot="secondary"', () => {
       let source = `
         @Component({
-          template: \`<ion-item item-start></ion-item>
+          template: \`
+            <ion-buttons start>
+              <ion-button>Secondary</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
       `;
 
       const fail = {
-        message: 'The item-start attribute of ion-item has been renamed. Use slot="start" instead.',
+        message: 'The start attribute of ion-buttons has been renamed. Use slot="secondary" instead.',
         startPosition: {
-          line: 2,
-          character: 31
+          line: 3,
+          character: 25
         },
         endPosition: {
-          line: 2,
-          character: 41
+          line: 3,
+          character: 30
         }
       };
 
@@ -114,7 +133,10 @@ describe(ruleName, () => {
 
       let expected = `
         @Component({
-          template: \`<ion-item slot="start"></ion-item>
+          template: \`
+            <ion-buttons slot="secondary">
+              <ion-button>Secondary</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
@@ -123,24 +145,27 @@ describe(ruleName, () => {
       expect(res).to.eq(expected);
     });
 
-    it('should replace item-left with slot="start"', () => {
+    it('should replace end with slot="primary"', () => {
       let source = `
         @Component({
-          template: \`<ion-item item-left></ion-item>
+          template: \`
+            <ion-buttons end>
+              <ion-button>Primary</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
       `;
 
       const fail = {
-        message: 'The item-left attribute of ion-item has been renamed. Use slot="start" instead.',
+        message: 'The end attribute of ion-buttons has been renamed. Use slot="primary" instead.',
         startPosition: {
-          line: 2,
-          character: 31
+          line: 3,
+          character: 25
         },
         endPosition: {
-          line: 2,
-          character: 40
+          line: 3,
+          character: 28
         }
       };
 
@@ -150,7 +175,10 @@ describe(ruleName, () => {
 
       let expected = `
         @Component({
-          template: \`<ion-item slot="start"></ion-item>
+          template: \`
+            <ion-buttons slot="primary">
+              <ion-button>Primary</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
@@ -159,24 +187,27 @@ describe(ruleName, () => {
       expect(res).to.eq(expected);
     });
 
-    it('should replace item-right with slot="end"', () => {
+    it('should replace left with slot="start"', () => {
       let source = `
         @Component({
-          template: \`<ion-item item-right></ion-item>
+          template: \`
+            <ion-buttons left>
+              <ion-button>Left</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
       `;
 
       const fail = {
-        message: 'The item-right attribute of ion-item has been renamed. Use slot="end" instead.',
+        message: 'The left attribute of ion-buttons has been renamed. Use slot="start" instead.',
         startPosition: {
-          line: 2,
-          character: 31
+          line: 3,
+          character: 25
         },
         endPosition: {
-          line: 2,
-          character: 41
+          line: 3,
+          character: 29
         }
       };
 
@@ -186,7 +217,10 @@ describe(ruleName, () => {
 
       let expected = `
         @Component({
-          template: \`<ion-item slot="end"></ion-item>
+          template: \`
+            <ion-buttons slot="start">
+              <ion-button>Left</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
@@ -195,24 +229,27 @@ describe(ruleName, () => {
       expect(res).to.eq(expected);
     });
 
-    it('should replace item-end with slot="end"', () => {
+    it('should replace right with slot="end"', () => {
       let source = `
         @Component({
-          template: \`<ion-item item-end></ion-item>
+          template: \`
+            <ion-buttons right>
+              <ion-button>Right</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}
       `;
 
       const fail = {
-        message: 'The item-end attribute of ion-item has been renamed. Use slot="end" instead.',
+        message: 'The right attribute of ion-buttons has been renamed. Use slot="end" instead.',
         startPosition: {
-          line: 2,
-          character: 31
+          line: 3,
+          character: 25
         },
         endPosition: {
-          line: 2,
-          character: 39
+          line: 3,
+          character: 30
         }
       };
 
@@ -222,7 +259,10 @@ describe(ruleName, () => {
 
       let expected = `
         @Component({
-          template: \`<ion-item slot="end"></ion-item>
+          template: \`
+            <ion-buttons slot="end">
+              <ion-button>Right</ion-button>
+            </ion-buttons>
           \`
         })
         class Bar {}

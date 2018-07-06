@@ -12,7 +12,7 @@ export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
     ruleName: ruleName,
     type: 'functionality',
-    description: 'The ion-item requires an ion-label component. It is no longer automatically added.',
+    description: 'The ion-item component requires an ion-label component. It is no longer automatically added.',
     options: null,
     optionsDescription: 'Not configurable.',
     typescriptOnly: false,

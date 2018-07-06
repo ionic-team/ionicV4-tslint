@@ -11,22 +11,13 @@ export function generateDescription(directive: string, resultantElement: string)
 export function createDirectiveToElementTemplateVisitorClass(directive: string, resultantElement: string) {
   return class extends BasicTemplateAstVisitor {
     visitElement(element: ast.ElementAst, context: any): any {
-      if (element.name) {
-        const InvalidSyntaxBoxRe = new RegExp(`<\\w+[\\s\\S]+?(${directive})[\\s\\S]*?>`, 'gi');
+      const foundAttr = element.attrs.find(attr => attr.name === directive);
 
-        let error = generateDescription(directive, resultantElement);
+      if (foundAttr) {
+        const start = foundAttr.sourceSpan.start.offset;
+        const absolutePosition = this.getSourcePosition(start - 1);
 
-        const expr = element.sourceSpan.toString();
-
-        let matches;
-
-        while ((matches = InvalidSyntaxBoxRe.exec(expr)) !== null) {
-          const index = expr.indexOf(directive);
-          const start = element.sourceSpan.start.offset + index;
-          const absolutePosition = this.getSourcePosition(start - 1);
-
-          this.addFailure(this.createFailure(start, directive.length, error));
-        }
+        this.addFailureAt(start, directive.length, generateDescription(directive, resultantElement));
       }
 
       super.visitElement(element, context);

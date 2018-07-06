@@ -8,7 +8,7 @@ export const ruleName = 'ion-label-attributes-renamed';
 
 const replacementMap = new Map([['fixed', 'position="fixed"'], ['floating', 'position="floating"'], ['stacked', 'position="stacked"']]);
 
-const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-label', replacementMap);
+const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-label'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {

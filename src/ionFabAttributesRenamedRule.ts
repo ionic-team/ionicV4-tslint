@@ -15,7 +15,7 @@ const replacementMap = new Map([
   ['middle', 'vertical="center"']
 ]);
 
-const IonFabAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-fab', replacementMap);
+const IonFabAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-fab'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
