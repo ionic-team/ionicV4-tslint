@@ -4,15 +4,15 @@ import * as ts from 'typescript';
 
 import { createIonLabelRequiredTemplateVisitorClass } from './helpers/ionLabelRequired';
 
-export const ruleName = 'ion-item-ion-label-required';
+export const ruleName = 'ion-list-header-ion-label-required';
 
-const TemplateVisitor = createIonLabelRequiredTemplateVisitorClass('ion-item');
+const TemplateVisitor = createIonLabelRequiredTemplateVisitorClass('ion-list-header');
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
     ruleName: ruleName,
     type: 'functionality',
-    description: 'The ion-item component requires an ion-label component. It is no longer automatically added.',
+    description: 'The ion-list-header component requires an ion-label component. It is no longer automatically added.',
     options: null,
     optionsDescription: 'Not configurable.',
     typescriptOnly: false,
