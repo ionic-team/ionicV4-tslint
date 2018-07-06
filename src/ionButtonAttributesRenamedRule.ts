@@ -20,7 +20,7 @@ const replacementMap = new Map([
   ['block', 'expand="block"']
 ]);
 
-const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-button', replacementMap);
+const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-button'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
