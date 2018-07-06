@@ -7,28 +7,19 @@ import * as ts from 'typescript';
 
 import { isElementAst } from './helpers/utils';
 
-export const ruleName = 'ion-back-button-not-added-by-default';
+export const ruleName = 'ion-item-ion-label-required';
 
 class TemplateVisitor extends BasicTemplateAstVisitor {
   visitElement(element: ast.ElementAst, context: any): any {
-    if (element.name && element.name === 'ion-toolbar') {
-      let found = false;
-      const ionButtonsElement = element.children.find((e): e is ast.ElementAst => isElementAst(e) && e.name === 'ion-buttons');
+    if (element.name && element.name === 'ion-item') {
+      const ionLabelElement = element.children.find((e): e is ast.ElementAst => isElementAst(e) && e.name === 'ion-label');
 
-      if (ionButtonsElement) {
-        const ionBackButtonElement = ionButtonsElement.children.find(e => isElementAst(e) && e.name === 'ion-back-button');
-
-        if (ionBackButtonElement) {
-          found = true;
-        }
-      }
-
-      if (!found) {
+      if (!ionLabelElement) {
         const start = element.sourceSpan.start.offset;
         const length = element.name.length;
         const position = this.getSourcePosition(start) + length + 1;
 
-        this.addFailureAt(start + 1, length, 'The back button in an ion-toolbar is no longer automatically added.');
+        this.addFailureAt(start + 1, length, 'The ion-item requires an ion-label component. It is no longer automatically added.');
       }
     }
 
@@ -40,7 +31,7 @@ export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
     ruleName: ruleName,
     type: 'functionality',
-    description: 'The ion-back-button is not added by default to an ion-toolbar.',
+    description: 'The ion-item requires an ion-label component. It is no longer automatically added.',
     options: null,
     optionsDescription: 'Not configurable.',
     typescriptOnly: false,
