@@ -25,7 +25,7 @@ const replacementPairs: [string, string][] = [].concat(
 
 const replacementMap = new Map(replacementPairs);
 
-const IonGridAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-col', replacementMap);
+const IonGridAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-col'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {

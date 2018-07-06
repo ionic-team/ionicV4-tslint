@@ -13,7 +13,7 @@ const replacementMap = new Map([
   ['item-right', 'slot="end"']
 ]);
 
-const IonItemAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass('ion-item', replacementMap);
+const IonItemAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-item'], replacementMap);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
