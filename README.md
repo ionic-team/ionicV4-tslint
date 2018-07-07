@@ -28,6 +28,8 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
         "ion-alert-method-create-parameters-renamed": true,
         "ion-datetime-capitalization-changed": true,
         "ion-item-option-method-get-sliding-percent-renamed": true,
+        "ion-overlay-method-create-should-use-await": true,
+        "ion-overlay-method-present-should-use-await": true,
         "ion-back-button-not-added-by-default": { "options": [true], "severity": "warning" },
         "ion-button-attributes-renamed": true,
         "ion-button-is-now-an-element": true,
@@ -144,7 +146,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th rowspan="2">
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a>
     </th>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-create-should-use-await</code>
@@ -153,11 +155,11 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
   </tr>
   <tr>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-present-should-use-await</code>
     </td>
-    <td></td>
+     <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
   </tr>
   <tr>
     <th colspan="5">Markup Changes</th>
