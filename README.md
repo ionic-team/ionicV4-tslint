@@ -20,11 +20,9 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 1.  Add a file called `ionic-migration.json` at the root of your project and paste in the following JSON.
 
-    ```
+    ```json
     {
-      "rulesDirectory": [
-        "@ionic/v4-migration-tslint/rules"
-      ],
+      "rulesDirectory": ["@ionic/v4-migration-tslint/rules"],
       "rules": {
         "ion-action-sheet-method-create-parameters-renamed": true,
         "ion-alert-method-create-parameters-renamed": true,
@@ -46,7 +44,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 1.  Lint your project:
 
-    ```
+    ```bash
     npx tslint -c ionic-migration.json -p tsconfig.json
     ```
 
@@ -147,11 +145,11 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a>
     </th>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-create-should-use-await</code>
     </td>
-    <td></td>
+    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
   </tr>
   <tr>
     <td></td>
