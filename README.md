@@ -12,13 +12,13 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 ## How to Use
 
-1. Install the lint rules:
+1.  Install the lint rules:
 
     ```
     npm i -D @ionic/v4-migration-tslint
     ```
 
-1. Add a file called `ionic-migration.json` at the root of your project and paste in the following JSON.
+1.  Add a file called `ionic-migration.json` at the root of your project and paste in the following JSON.
 
     ```
     {
@@ -28,6 +28,8 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       "rules": {
         "ion-action-sheet-method-create-parameters-renamed": true,
         "ion-alert-method-create-parameters-renamed": true,
+        "ion-datetime-capitalization-changed": true,
+        "ion-item-option-method-get-sliding-percent-renamed": true,
         "ion-back-button-not-added-by-default": { "options": [true], "severity": "warning" },
         "ion-button-attributes-renamed": true,
         "ion-button-is-now-an-element": true,
@@ -42,7 +44,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     }
     ```
 
-1. Lint your project:
+1.  Lint your project:
 
     ```
     npx tslint -c ionic-migration.json -p tsconfig.json
@@ -109,12 +111,14 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item-sliding">Item Sliding</a>
     </th>
-    <td></td>
-    <td>:white_large_square:</td>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-item-option-method-get-sliding-percent-renamed</code>
     </td>
-    <td></td>
+    <td>
+       <a href="https://github.com/mhartington">@mhartington</a>
+    </td>
   </tr>
   <tr>
     <th>
@@ -513,7 +517,6 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     </td>
   </tr>
 </table>
-
 
 ### Not Covered
 
