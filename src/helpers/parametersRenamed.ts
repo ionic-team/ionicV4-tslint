@@ -19,7 +19,6 @@ import * as ts from 'typescript';
 export function createParametersRenamedClass(methodName: string, providerName: string, parameterMap: Map<string, string>) {
   return class extends Lint.RuleWalker {
     visitCallExpression(node: ts.CallExpression) {
-      debugger;
       if (node.arguments.length > 0) {
         const firstArgument = node.arguments[0];
 
