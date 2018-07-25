@@ -34,12 +34,30 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
         "ion-button-attributes-renamed": true,
         "ion-button-is-now-an-element": true,
         "ion-chip-markup-has-changed": true,
-        "ion-datetime-capitalization-changed": true,
-        "ion-fab-attributes-renamed": true,
         "ion-fab-button-is-now-an-element": true,
+        "ion-fab-attributes-renamed": true,
+        "ion-fab-fixed-content": true,
+        "ion-col-attributes-renamed": true,
+        "ion-icon-attribute-is-active-removed": true,
         "ion-item-is-now-an-element": true,
+        "ion-item-ion-label-required": true,
+        "ion-item-attributes-renamed": true,
+        "ion-item-divider-ion-label-required": true,
+        "ion-item-options-attribute-values-renamed": true,
+        "ion-item-option-is-now-an-element": true,
+        "ion-label-attributes-renamed": true,
+        "ion-list-header-ion-label-required": true,
+        "ion-menu-toggle-is-now-an-element": true,
         "ion-navbar-is-now-ion-toolbar": true,
-        "ion-tab-attributes-renamed": true
+        "ion-option-is-now-ion-select-option": true,
+        "ion-radio-attributes-renamed": true,
+        "ion-radio-slot-required": true,
+        "ion-radio-group-is-now-an-element": true,
+        "ion-range-attributes-renamed": true,
+        "ion-spinner-attribute-values-renamed": true,
+        "ion-tab-attributes-renamed": true,
+        "ion-text-is-now-an-element": true,
+        "ion-buttons-attributes-renamed": true
       }
     }
     ```
@@ -53,7 +71,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     :memo: **Hints**:
 
     * Run tslint with `-t verbose` to output the rule names of lint errors which correspond to the [table of rules](#rules) below.
-    * Run tslint with `--fix` to attempt automatic fixes (_note_: not all rules have fixes):
+    * Run tslint with `--fix` to attempt automatic fixes (_note_: not all rules have fixes, and be sure to save a backup in version control before running with `--fix`)
 
 ## Rules
 

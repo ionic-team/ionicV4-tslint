@@ -1,3 +1,33 @@
+# [1.4.0](https://github.com/ionic-team/v4-migration-tslint/compare/v1.3.0...v1.4.0) (2018-07-24)
+
+
+### Bug Fixes
+
+* **rules:** uncombine ion-navbar-is-now-ion-toolbar rule ([#38](https://github.com/ionic-team/v4-migration-tslint/issues/38)) ([c13764f](https://github.com/ionic-team/v4-migration-tslint/commit/c13764f))
+
+
+### Features
+
+* **rules:** add ion-back-button-not-added-by-default rule ([#26](https://github.com/ionic-team/v4-migration-tslint/issues/26)) ([65a168f](https://github.com/ionic-team/v4-migration-tslint/commit/65a168f))
+* **rules:** add ion-buttons-attributes-renamed rule ([2a480dd](https://github.com/ionic-team/v4-migration-tslint/commit/2a480dd))
+* **rules:** add ion-col-attributes-renamed rule ([#33](https://github.com/ionic-team/v4-migration-tslint/issues/33)) ([2cb436f](https://github.com/ionic-team/v4-migration-tslint/commit/2cb436f))
+* **rules:** add ion-fab-fixed-content rule ([#29](https://github.com/ionic-team/v4-migration-tslint/issues/29)) ([7fbff99](https://github.com/ionic-team/v4-migration-tslint/commit/7fbff99))
+* **rules:** add ion-icon-attribute-is-active-removed rule ([#30](https://github.com/ionic-team/v4-migration-tslint/issues/30)) ([0679c7b](https://github.com/ionic-team/v4-migration-tslint/commit/0679c7b))
+* **rules:** add ion-item-attributes-renamed rule ([#34](https://github.com/ionic-team/v4-migration-tslint/issues/34)) ([d08e0ba](https://github.com/ionic-team/v4-migration-tslint/commit/d08e0ba))
+* **rules:** add ion-item-divider-ion-label-required rule ([#36](https://github.com/ionic-team/v4-migration-tslint/issues/36)) ([b0a6cb1](https://github.com/ionic-team/v4-migration-tslint/commit/b0a6cb1))
+* **rules:** add ion-item-ion-label-required rule ([#32](https://github.com/ionic-team/v4-migration-tslint/issues/32)) ([098bd7f](https://github.com/ionic-team/v4-migration-tslint/commit/098bd7f))
+* **rules:** add ion-item-option-is-now-an-element rule ([04dae1c](https://github.com/ionic-team/v4-migration-tslint/commit/04dae1c))
+* **rules:** add ion-item-options-attribute-values-renamed rule ([d3306e8](https://github.com/ionic-team/v4-migration-tslint/commit/d3306e8))
+* **rules:** add ion-label-attributes-renamed rule ([#28](https://github.com/ionic-team/v4-migration-tslint/issues/28)) ([0601a0c](https://github.com/ionic-team/v4-migration-tslint/commit/0601a0c))
+* **rules:** add ion-list-header-ion-label-required rule ([#35](https://github.com/ionic-team/v4-migration-tslint/issues/35)) ([94503c2](https://github.com/ionic-team/v4-migration-tslint/commit/94503c2))
+* **rules:** add ion-menu-toggle-is-now-an-element rule ([591b10a](https://github.com/ionic-team/v4-migration-tslint/commit/591b10a))
+* **rules:** add ion-option-is-now-ion-select-option rule ([6274f6a](https://github.com/ionic-team/v4-migration-tslint/commit/6274f6a))
+* **rules:** add ion-radio-group-is-now-an-element rule ([eb933cc](https://github.com/ionic-team/v4-migration-tslint/commit/eb933cc))
+* **rules:** add ion-range-attributes-renamed rule ([#37](https://github.com/ionic-team/v4-migration-tslint/issues/37)) ([6cac6a2](https://github.com/ionic-team/v4-migration-tslint/commit/6cac6a2))
+* **rules:** add ion-spinner-attribute-values-renamed rule ([#31](https://github.com/ionic-team/v4-migration-tslint/issues/31)) ([c4db1f8](https://github.com/ionic-team/v4-migration-tslint/commit/c4db1f8))
+* **rules:** add ion-text-is-now-an-element rule ([fe94a1f](https://github.com/ionic-team/v4-migration-tslint/commit/fe94a1f))
+* **rules:** allow rule to work with ion-loading, ion-infinite-scroll, and ion-refresher ([9e8f626](https://github.com/ionic-team/v4-migration-tslint/commit/9e8f626))
+
 # [1.3.0](https://github.com/ionic-team/v4-migration-tslint/compare/v1.2.0...v1.3.0) (2018-07-03)
 
 
