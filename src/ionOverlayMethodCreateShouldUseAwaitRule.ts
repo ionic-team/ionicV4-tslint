@@ -22,7 +22,7 @@ class CreateMethodShouldUseAwaitWalker extends Lint.RuleWalker {
 
       if (isValidForRule(node, 'create', ...matchingControllers) && tsutils.isObjectLiteralExpression(firstArgument)) {
         if (node.parent.kind !== ts.SyntaxKind.AwaitExpression) {
-          this.addFailureAtNode(node, ruleMessage, Lint.Replacement.replaceFromTo(node.getStart(), node.getStart(), 'await '));
+          this.addFailureAtNode(node, ruleMessage);
         }
       }
     }
