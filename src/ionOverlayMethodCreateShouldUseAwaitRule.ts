@@ -3,7 +3,8 @@ import * as tsutils from 'tsutils';
 import * as ts from 'typescript';
 import { isValidForRule } from './helpers/parametersRenamed';
 export const ruleName = 'ion-overlay-method-create-should-use-await';
-export const ruleMessage = 'You must await the create method';
+export const ruleMessage = `The create method of overlay controllers now returns a promise. 
+Please ensure that you are handling this promise correctly.`;
 
 const matchingControllers = [
   'PopoverController',

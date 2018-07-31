@@ -20,6 +20,23 @@ describe(ruleName, () => {
       assertSuccess(ruleName, source);
     });
 
+    it('should work when the controller variable is named something else', () => {
+      let source = `
+      class DoSomething{
+        constructor(private strangelyNamedCtrl: ActionSheetController){}
+        
+        doWork(){
+          await this.strangelyNamedCtrl.create({
+            component: PopoverComponent,
+            ev: event,
+            translucent: true
+          })
+        }
+      }
+        `;
+      assertSuccess(ruleName, source);
+    });
+
     it('should not do anything if the class name does not match', () => {
       let source = `
       class DoSomething{
@@ -53,10 +70,10 @@ describe(ruleName, () => {
         it('should fail if await is not present', () => {
           let source = `
       class DoSomething{
-        constructor(private actionSheetController: ${controller}){}
+        constructor(private poorlyNamedController: ${controller}){}
         
         doWork(){
-          this.actionSheetController.create({
+          this.poorlyNamedController.create({
           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             component: PopoverComponent,
             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

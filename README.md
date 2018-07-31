@@ -164,7 +164,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th rowspan="2">
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a>
     </th>
-    <td>:wrench:</td>
+    <td></td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-create-should-use-await</code>

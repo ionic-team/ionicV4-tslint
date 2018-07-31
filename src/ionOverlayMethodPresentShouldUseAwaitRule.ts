@@ -2,7 +2,8 @@ import * as Lint from 'tslint';
 import * as tsutils from 'tsutils';
 import * as ts from 'typescript';
 export const ruleName = 'ion-overlay-method-present-should-use-await';
-export const ruleMessage = 'You must await the present method';
+export const ruleMessage = `The present method of overlay controllers now returns a promise. 
+Please ensure that you are handling this promise correctly.`;
 
 const matchingControllers = [
   'PopoverController',
