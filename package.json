@@ -37,6 +37,10 @@
     "url": "https://github.com/ionic-team/v4-migration-tslint/issues"
   },
   "homepage": "https://github.com/ionic-team/v4-migration-tslint#readme",
+  "dependencies": {
+    "codelyzer": "^4.4.2",
+    "tslint": "^5.0.0"
+  },
   "devDependencies": {
     "@angular/compiler": "^6.0.0",
     "@angular/core": "^6.0.0",
@@ -47,7 +51,6 @@
     "@types/node": "^9.6.7",
     "@types/sprintf-js": "^1.1.0",
     "chai": "^4.1.2",
-    "codelyzer": "^4.3.0",
     "commitizen": "^2.10.1",
     "concurrently": "^3.5.1",
     "coveralls": "^3.0.1",
@@ -61,13 +64,11 @@
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.0",
     "semantic-release": "^15.1.8",
-    "tslint": "^5.0.0",
     "typescript": "^2.7.2"
   },
   "peerDependencies": {
     "@angular/compiler": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "tslint": "^5.0.0"
+    "@angular/core": "^6.0.0"
   },
   "release": {
     "verifyConditions": [
