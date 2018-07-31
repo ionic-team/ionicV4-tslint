@@ -1,6 +1,6 @@
 import * as Lint from 'tslint';
-import * as ts from 'typescript';
 import * as tsutils from 'tsutils';
+import * as ts from 'typescript';
 
 /**
  * Currently only supports a call exactly like this:
@@ -45,7 +45,7 @@ export function createParametersRenamedClass(methodName: string, providerName: s
   };
 }
 
-function isValidForRule(node: ts.CallExpression, methodName: string, providerName: string): boolean {
+export function isValidForRule(node: ts.CallExpression, methodName: string, ...providerNames: string[]): boolean {
   const expression = node.expression;
 
   if (
@@ -69,7 +69,7 @@ function isValidForRule(node: ts.CallExpression, methodName: string, providerNam
           controllerParameter &&
           tsutils.isTypeReferenceNode(controllerParameter.type) &&
           tsutils.isIdentifier(controllerParameter.type.typeName) &&
-          controllerParameter.type.typeName.text === providerName
+          providerNames.indexOf(controllerParameter.type.typeName.text) > -1
         ) {
           return true;
         }

@@ -20,16 +20,16 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 1.  Add a file called `ionic-migration.json` at the root of your project and paste in the following JSON.
 
-    ```
+    ```json
     {
-      "rulesDirectory": [
-        "@ionic/v4-migration-tslint/rules"
-      ],
+      "rulesDirectory": ["@ionic/v4-migration-tslint/rules"],
       "rules": {
         "ion-action-sheet-method-create-parameters-renamed": true,
         "ion-alert-method-create-parameters-renamed": true,
         "ion-datetime-capitalization-changed": true,
         "ion-item-option-method-get-sliding-percent-renamed": true,
+        "ion-overlay-method-create-should-use-await": true,
+        "ion-overlay-method-present-should-use-await": true,
         "ion-back-button-not-added-by-default": { "options": [true], "severity": "warning" },
         "ion-button-attributes-renamed": true,
         "ion-button-is-now-an-element": true,
@@ -64,7 +64,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
 
 1.  Lint your project:
 
-    ```
+    ```bash
     npx tslint -c ionic-migration.json -p tsconfig.json
     ```
 
@@ -165,19 +165,19 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#overlays">Overlays</a>
     </th>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-create-should-use-await</code>
     </td>
-    <td></td>
+    <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
   </tr>
   <tr>
     <td></td>
-    <td>:white_large_square:</td>
+    <td>:white_check_mark:</td>
     <td>
       <code>ion-overlay-method-present-should-use-await</code>
     </td>
-    <td></td>
+     <td><a href="https://github.com/cwoolum">@cwoolum</a></td>
   </tr>
   <tr>
     <th colspan="5">Markup Changes</th>
