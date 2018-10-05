@@ -51,7 +51,7 @@
     "@types/node": "^10.11.4",
     "@types/sprintf-js": "^1.1.0",
     "chai": "^4.1.2",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.2",
     "concurrently": "^3.5.1",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
