@@ -209,7 +209,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     </td>
   </tr>
   <tr>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-button-is-now-an-element</code>
@@ -235,7 +235,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th rowspan="3">
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#fab">FAB</a>
     </th>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-fab-button-is-now-an-element</code>
@@ -294,7 +294,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th rowspan="3">
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#item">Item</a>
     </th>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-item-is-now-an-element</code>
@@ -450,7 +450,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     </td>
   </tr>
   <tr>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-radio-group-is-now-an-element</code>
@@ -512,7 +512,7 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
     <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#text--typography">Text / Typography</a>
     </th>
-    <td></td>
+    <td>:wrench:</td>
     <td>:white_check_mark:</td>
     <td>
       <code>ion-text-is-now-an-element</code>
