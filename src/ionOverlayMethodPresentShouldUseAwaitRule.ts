@@ -16,12 +16,16 @@ const matchingControllers = [
 
 class CreateMethodShouldUseAwaitWalker extends Lint.RuleWalker {
   visitCallExpression(node: ts.CallExpression) {
-    debugger;
-
     let expression = node.expression;
 
     if (tsutils.isPropertyAccessExpression(expression) && expression.name.text === 'present') {
-      if (node.parent.kind !== ts.SyntaxKind.AwaitExpression) {
+      if (
+        !tsutils.isAwaitExpression(node.parent) &&
+        (!tsutils.isPropertyAccessExpression(node.parent) ||
+          !tsutils.isCallExpression(node.parent.parent) ||
+          !tsutils.isPropertyAccessExpression(node.parent.parent.expression) ||
+          node.parent.parent.expression.name.text !== 'then')
+      ) {
         this.addFailureAtNode(node, ruleMessage);
       }
     }

@@ -17,12 +17,17 @@ const matchingControllers = [
 
 class CreateMethodShouldUseAwaitWalker extends Lint.RuleWalker {
   visitCallExpression(node: ts.CallExpression) {
-    debugger;
     if (node.arguments.length > 0) {
       const firstArgument = node.arguments[0];
 
       if (isValidForRule(node, 'create', ...matchingControllers) && tsutils.isObjectLiteralExpression(firstArgument)) {
-        if (node.parent.kind !== ts.SyntaxKind.AwaitExpression) {
+        if (
+          !tsutils.isAwaitExpression(node.parent) &&
+          (!tsutils.isPropertyAccessExpression(node.parent) ||
+            !tsutils.isCallExpression(node.parent.parent) ||
+            !tsutils.isPropertyAccessExpression(node.parent.parent.expression) ||
+            node.parent.parent.expression.name.text !== 'then')
+        ) {
           this.addFailureAtNode(node, ruleMessage);
         }
       }

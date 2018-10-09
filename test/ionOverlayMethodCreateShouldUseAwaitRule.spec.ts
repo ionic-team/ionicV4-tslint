@@ -20,6 +20,23 @@ describe(ruleName, () => {
       assertSuccess(ruleName, source);
     });
 
+    it('should work when then() is used', () => {
+      let source = `
+      class DoSomething{
+        constructor(private actionSheetController: ActionSheetController){}
+        
+        doWork(){
+          this.actionSheetController.create({
+            component: PopoverComponent,
+            ev: event,
+            translucent: true
+          }).then(() => {});
+        }
+      }
+        `;
+      assertSuccess(ruleName, source);
+    });
+
     it('should work when the controller variable is named something else', () => {
       let source = `
       class DoSomething{
