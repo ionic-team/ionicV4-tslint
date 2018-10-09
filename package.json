@@ -21,8 +21,7 @@
     "test:coverage": "npm run clean && npm run build && nyc --reporter=lcov --reporter=text-lcov npm test && nyc report --reporter=text-lcov | coveralls",
     "tsc": "npm run src:tsc && npm run test:tsc",
     "tsc:watch": "concurrently --names 'src,test' 'npm run src:tsc:watch -- --preserveWatchOutput' 'npm run test:tsc:watch -- --preserveWatchOutput'",
-    "cz": "git-cz",
-    "precommit": "npm run lint && npm run format:check"
+    "cz": "git-cz"
   },
   "files": [
     "rules"
@@ -55,16 +54,16 @@
     "concurrently": "^4.0.1",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
-    "husky": "^0.14.3",
+    "husky": "^1.1.1",
     "mocha": "^5.1.1",
     "mocha-junit-reporter": "^1.17.0",
-    "nyc": "^11.8.0",
+    "nyc": "^13.0.1",
     "path": "^0.12.7",
     "prettier": "^1.12.1",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.0",
     "semantic-release": "^15.1.8",
-    "typescript": "^2.7.2"
+    "typescript": "^3.1.1"
   },
   "peerDependencies": {
     "@angular/compiler": "^6.0.0",
@@ -92,6 +91,11 @@
     "fail": [
       "@semantic-release/github"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format:check"
+    }
   },
   "nyc": {
     "report-dir": "./coverage",
