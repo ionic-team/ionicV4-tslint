@@ -24,14 +24,17 @@ export function createParametersRenamedClass(methodName: string, providerName: s
 
         if (isValidForRule(node, methodName, providerName) && tsutils.isObjectLiteralExpression(firstArgument)) {
           for (const prop of firstArgument.properties) {
-            if (tsutils.isPropertyAssignment(prop)) {
+            if (tsutils.isPropertyAssignment(prop) || tsutils.isShorthandPropertyAssignment(prop)) {
               const propName = tsutils.getPropertyName(prop.name);
-              const replacement = parameterMap.get(propName);
+              const replacementPropName = parameterMap.get(propName);
 
-              if (replacement) {
+              if (replacementPropName) {
+                const replacement = tsutils.isShorthandPropertyAssignment(prop)
+                  ? `${replacementPropName}: ${propName}`
+                  : replacementPropName;
                 this.addFailureAtNode(
                   prop.name,
-                  `Property ${propName} has been renamed to ${replacement}.`,
+                  `Property ${propName} has been renamed to ${replacementPropName}.`,
                   new Lint.Replacement(prop.name.getStart(), prop.name.getWidth(), replacement)
                 );
               }

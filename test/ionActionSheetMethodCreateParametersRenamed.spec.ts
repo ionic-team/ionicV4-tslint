@@ -67,7 +67,7 @@ describe(ruleName, () => {
           const actionSheet = await this.actionSheetCtrl.create({
             title: 'This is the title',
             ~~~~~
-            subTitle: 'this is the sub title'            
+            subTitle: 'this is the sub title'
           });
           await actionSheet.present();
         }
@@ -88,8 +88,8 @@ describe(ruleName, () => {
 
         showAlert(){
           const actionSheet = await this.actionSheetCtrl.create({
-            header: 'This is the title',            
-            subTitle: 'this is the sub title'            
+            header: 'This is the title',
+            subTitle: 'this is the sub title'
             ~~~~~~~~
           });
           await actionSheet.present();
@@ -113,7 +113,7 @@ describe(ruleName, () => {
 
         showAlert(){
           const actionSheet = await this.actionSheetCtrl.create({
-            title: 'This is the title',            
+            title: 'This is the title',
             subTitle: 'this is the sub title'
           });
           await actionSheet.present();
@@ -155,7 +155,69 @@ describe(ruleName, () => {
 
         showAlert(){
           const actionSheet = await this.actionSheetCtrl.create({
-            header: 'This is the title',            
+            header: 'This is the title',
+            subHeader: 'this is the sub title'
+          });
+          await actionSheet.present();
+        }
+      }
+          `);
+    });
+
+    it('should replace shorthand property values', () => {
+      let source = `
+      class DoSomething{
+        constructor(private actionSheetCtrl: ActionSheetController){}
+
+        const title = 'This is the title'
+
+        showAlert(){
+          const actionSheet = await this.actionSheetCtrl.create({
+            title,
+            subTitle: 'this is the sub title'
+          });
+          await actionSheet.present();
+        }
+      }
+          `;
+
+      const failures = assertFailures(ruleName, source, [
+        {
+          message: 'Property title has been renamed to header.',
+          startPosition: {
+            line: 8,
+            character: 12
+          },
+          endPosition: {
+            line: 8,
+            character: 17
+          }
+        },
+        {
+          message: 'Property subTitle has been renamed to subHeader.',
+          startPosition: {
+            line: 9,
+            character: 12
+          },
+          endPosition: {
+            line: 9,
+            character: 20
+          }
+        }
+      ]);
+
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
+
+      expect(res).to.eq(`
+      class DoSomething{
+        constructor(private actionSheetCtrl: ActionSheetController){}
+
+        const title = 'This is the title'
+
+        showAlert(){
+          const actionSheet = await this.actionSheetCtrl.create({
+            header: title,
             subHeader: 'this is the sub title'
           });
           await actionSheet.present();
