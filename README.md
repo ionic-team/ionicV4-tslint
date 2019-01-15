@@ -57,7 +57,8 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
         "ion-spinner-attribute-values-renamed": true,
         "ion-tab-attributes-renamed": true,
         "ion-text-is-now-an-element": true,
-        "ion-buttons-attributes-renamed": true
+        "ion-buttons-attributes-renamed": true,
+        "ion-menu-events-renamed": true
       }
     }
     ```
@@ -391,6 +392,21 @@ We are looking for contributors to help build these rules out! See [`CONTRIBUTIN
       <a href="https://github.com/dwieeb">@dwieeb</a>
     </td>
   </tr>
+
+  <tr>
+    <th>
+      <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#events-renamed">Menu</a>
+    </th>
+    <td>:wrench:</td>
+    <td>:white_check_mark:</td>
+    <td>
+      <code>ion-menu-events-renamed</code>
+    </td>
+    <td>
+      <a href="https://github.com/mhartington">@mhartington</a>
+    </td>
+  </tr>
+
   <tr>
     <th>
       <a href="https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#menu-toggle">Menu Toggle</a>
