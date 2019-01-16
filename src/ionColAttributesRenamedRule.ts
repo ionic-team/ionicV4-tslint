@@ -13,9 +13,7 @@ const formatNewAttr = (prefix: string, breakpoint: string | undefined, value: st
 
 const attrPrefixMap = new Map([['col', 'size'], ['offset', 'offset'], ['push', 'push'], ['pull', 'pull']]);
 const breakpoints = [undefined, 'xs', 'sm', 'md', 'lg', 'xl'];
-const values = Array(12)
-  .fill(undefined)
-  .map((v, i) => String(i + 1));
+const values = ['auto', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 const replacementPairs: [string, string][] = [].concat(
   ...[...attrPrefixMap.entries()].map(([oldPrefix, newPrefix]) =>

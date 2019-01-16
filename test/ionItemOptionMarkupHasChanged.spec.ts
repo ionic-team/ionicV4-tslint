@@ -3,7 +3,7 @@ import { assertAnnotated, assertSuccess } from './testHelper';
 
 describe(ruleName, () => {
   describe('success', () => {
-    it('should work when ion-chip-button is used', () => {
+    it('should work when ion-item-option is used', () => {
       let source = `
       @Component({
         template: \`

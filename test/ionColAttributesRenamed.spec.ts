@@ -15,6 +15,16 @@ describe(ruleName, () => {
       assertSuccess(ruleName, source);
     });
 
+    it('should work with proper size attribute', () => {
+      let source = `
+          @Component({
+            template: \`<ion-col size="auto"></ion-col>\`
+          })
+          class Bar {}
+        `;
+      assertSuccess(ruleName, source);
+    });
+
     it('should work with proper offset attribute', () => {
       let source = `
           @Component({
@@ -64,6 +74,44 @@ describe(ruleName, () => {
         source
       });
     });
+
+    it('should fail when col-auto is used', () => {
+      let source = `
+            @Component({
+              template: \`
+              <ion-col col-auto>
+                       ~~~~~~~~
+              </ion-col>
+              \`
+            })
+            class Bar {}
+          `;
+
+      assertAnnotated({
+        ruleName,
+        message: 'The col-auto attribute of ion-col has been renamed. Use size="auto" instead.',
+        source
+      });
+    });
+
+    it('should fail when col-xs-auto is used', () => {
+      let source = `
+            @Component({
+              template: \`
+              <ion-col col-xs-auto>
+                       ~~~~~~~~~~~
+              </ion-col>
+              \`
+            })
+            class Bar {}
+          `;
+
+      assertAnnotated({
+        ruleName,
+        message: 'The col-xs-auto attribute of ion-col has been renamed. Use size-xs="auto" instead.',
+        source
+      });
+    });
   });
 
   describe('replacements', () => {
@@ -105,6 +153,44 @@ describe(ruleName, () => {
       expect(res).to.eq(expected);
     });
 
+    it('should replace col-auto with size="auto"', () => {
+      let source = `
+        @Component({
+          template: \`
+            <ion-col col-auto></ion-col>
+          \`
+        })
+        class Bar {}
+      `;
+
+      const fail = {
+        message: 'The col-auto attribute of ion-col has been renamed. Use size="auto" instead.',
+        startPosition: {
+          line: 3,
+          character: 21
+        },
+        endPosition: {
+          line: 3,
+          character: 29
+        }
+      };
+
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
+
+      let expected = `
+        @Component({
+          template: \`
+            <ion-col size="auto"></ion-col>
+          \`
+        })
+        class Bar {}
+      `;
+
+      expect(res).to.eq(expected);
+    });
+
     it('should replace col-xs-3 with size-xs="3"', () => {
       let source = `
         @Component({
@@ -135,6 +221,44 @@ describe(ruleName, () => {
         @Component({
           template: \`
             <ion-col size-xs="3"></ion-col>
+          \`
+        })
+        class Bar {}
+      `;
+
+      expect(res).to.eq(expected);
+    });
+
+    it('should replace col-xs-auto with size-xs="auto"', () => {
+      let source = `
+        @Component({
+          template: \`
+            <ion-col col-xs-auto></ion-col>
+          \`
+        })
+        class Bar {}
+      `;
+
+      const fail = {
+        message: 'The col-xs-auto attribute of ion-col has been renamed. Use size-xs="auto" instead.',
+        startPosition: {
+          line: 3,
+          character: 21
+        },
+        endPosition: {
+          line: 3,
+          character: 32
+        }
+      };
+
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
+
+      let expected = `
+        @Component({
+          template: \`
+            <ion-col size-xs="auto"></ion-col>
           \`
         })
         class Bar {}
