@@ -17,7 +17,8 @@ const replacementMap = new Map([
   ['outline', 'fill="outline"'],
   ['solid', 'fill="solid"'],
   ['full', 'expand="full"'],
-  ['block', 'expand="block"']
+  ['block', 'expand="block"'],
+  ['round', 'shape="round"']
 ]);
 
 const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-button'], replacementMap);

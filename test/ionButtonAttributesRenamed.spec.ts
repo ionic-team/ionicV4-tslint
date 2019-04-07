@@ -203,6 +203,23 @@ describe(ruleName, () => {
         source
       });
     });
+
+    it('should fail when round is used', () => {
+      let source = `
+      @Component({
+        template: \`
+          <ion-button round></ion-button>\`
+                      ~~~~~
+      })
+      class Bar{}
+          `;
+
+      assertAnnotated({
+        ruleName,
+        message: 'The round attribute of ion-button has been renamed. Use shape="round" instead.',
+        source
+      });
+    });
   });
 
   describe('replacements', () => {
@@ -594,6 +611,42 @@ describe(ruleName, () => {
       let expected = `
         @Component({
           template: \`<ion-button expand="block"></ion-button>
+          \`
+        })
+        class Bar {}
+      `;
+
+      expect(res).to.eq(expected);
+    });
+
+    it('should replace round with shape="round"', () => {
+      let source = `
+        @Component({
+          template: \`<ion-button round></ion-button>
+          \`
+        })
+        class Bar {}
+      `;
+
+      const fail = {
+        message: 'The round attribute of ion-button has been renamed. Use shape="round" instead.',
+        startPosition: {
+          line: 2,
+          character: 33
+        },
+        endPosition: {
+          line: 2,
+          character: 38
+        }
+      };
+
+      const failures = assertFailure(ruleName, source, fail);
+      const fixes = failures.map(f => f.getFix());
+      const res = Replacement.applyAll(source, Utils.flatMap(fixes, Utils.arrayify));
+
+      let expected = `
+        @Component({
+          template: \`<ion-button shape="round"></ion-button>
           \`
         })
         class Bar {}
