@@ -54,7 +54,7 @@
     "concurrently": "^4.0.1",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.1.1",
+    "husky": "^2.1.0",
     "mocha": "^5.1.1",
     "mocha-junit-reporter": "^1.17.0",
     "nyc": "^14.0.0",
