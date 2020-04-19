@@ -6,7 +6,10 @@ import { createAttributesRenamedTemplateVisitorClass } from './helpers/attribute
 
 export const ruleName = 'ion-menu-events-renamed';
 
-const replacementMap = new Map([['ionOpen', 'ionDidOpen'], ['ionClose', 'ionDidClose']]);
+const replacementMap = new Map([
+  ['ionOpen', 'ionDidOpen'],
+  ['ionClose', 'ionDidClose']
+]);
 
 const TemplateVisitor = createAttributesRenamedTemplateVisitorClass(undefined, replacementMap);
 

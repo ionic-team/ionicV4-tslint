@@ -5,7 +5,10 @@ import { createParametersRenamedClass } from './helpers/parametersRenamed';
 
 export const ruleName = 'ion-alert-method-create-parameters-renamed';
 
-const parameterMap = new Map([['title', 'header'], ['subTitle', 'subHeader']]);
+const parameterMap = new Map([
+  ['title', 'header'],
+  ['subTitle', 'subHeader']
+]);
 const Walker = createParametersRenamedClass('create', 'AlertController', parameterMap);
 
 export class Rule extends Lint.Rules.AbstractRule {

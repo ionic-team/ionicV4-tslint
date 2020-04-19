@@ -6,7 +6,15 @@ import { createAttributeValuesRenamedTemplateVisitorClass } from './helpers/attr
 
 export const ruleName = 'ion-item-options-attribute-values-renamed';
 
-const replacementMap = new Map([['side', new Map([['left', 'start'], ['right', 'end']])]]);
+const replacementMap = new Map([
+  [
+    'side',
+    new Map([
+      ['left', 'start'],
+      ['right', 'end']
+    ])
+  ]
+]);
 
 const TemplateVisitor = createAttributeValuesRenamedTemplateVisitorClass(['ion-item-options'], replacementMap);
 

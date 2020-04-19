@@ -6,7 +6,10 @@ import { createAttributesRenamedTemplateVisitorClass } from './helpers/attribute
 
 export const ruleName = 'ion-radio-attributes-renamed';
 
-const replacementMap = new Map([['item-left', 'slot="start"'], ['item-right', 'slot="end"']]);
+const replacementMap = new Map([
+  ['item-left', 'slot="start"'],
+  ['item-right', 'slot="end"']
+]);
 
 const IonFabAttributesRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-radio'], replacementMap);
 

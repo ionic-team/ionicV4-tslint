@@ -6,7 +6,11 @@ import { createAttributesRenamedTemplateVisitorClass } from './helpers/attribute
 
 export const ruleName = 'ion-label-attributes-renamed';
 
-const replacementMap = new Map([['fixed', 'position="fixed"'], ['floating', 'position="floating"'], ['stacked', 'position="stacked"']]);
+const replacementMap = new Map([
+  ['fixed', 'position="fixed"'],
+  ['floating', 'position="floating"'],
+  ['stacked', 'position="stacked"']
+]);
 
 const IonButtonAttributesAreRenamedTemplateVisitor = createAttributesRenamedTemplateVisitorClass(['ion-label'], replacementMap);
 

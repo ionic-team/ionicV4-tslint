@@ -11,7 +11,12 @@ const formatOldAttr = (prefix: string, breakpoint: string | undefined, value: st
 const formatNewAttr = (prefix: string, breakpoint: string | undefined, value: string) =>
   `${prefix}${typeof breakpoint === 'undefined' ? '' : `-${breakpoint}`}="${value}"`;
 
-const attrPrefixMap = new Map([['col', 'size'], ['offset', 'offset'], ['push', 'push'], ['pull', 'pull']]);
+const attrPrefixMap = new Map([
+  ['col', 'size'],
+  ['offset', 'offset'],
+  ['push', 'push'],
+  ['pull', 'pull']
+]);
 const breakpoints = [undefined, 'xs', 'sm', 'md', 'lg', 'xl'];
 const values = ['auto', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 

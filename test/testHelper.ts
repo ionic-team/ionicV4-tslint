@@ -56,7 +56,10 @@ function lint(ruleName: string, source: string | ts.SourceFile, options: any): t
     linter.lint('file.ts', source, configuration);
   } else {
     const rules = loadRules(convertRuleOptions(configuration.rules), linterOptions.rulesDirectory, false);
-    const res = [].concat.apply([], rules.map(r => r.apply(source))) as tslint.RuleFailure[];
+    const res = [].concat.apply(
+      [],
+      rules.map(r => r.apply(source))
+    ) as tslint.RuleFailure[];
     const errCount = res.filter(r => !r.getRuleSeverity || r.getRuleSeverity() === 'error').length;
     return {
       errorCount: errCount,
