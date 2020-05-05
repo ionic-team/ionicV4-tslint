@@ -50,7 +50,7 @@
     "@types/node": "^12.0.0",
     "@types/sprintf-js": "^1.1.0",
     "chai": "^4.1.2",
-    "commitizen": "^3.0.2",
+    "commitizen": "^4.1.2",
     "concurrently": "^4.0.1",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
