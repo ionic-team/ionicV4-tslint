@@ -57,7 +57,7 @@
     "husky": "^3.0.0",
     "mocha": "^5.1.1",
     "mocha-junit-reporter": "^1.17.0",
-    "nyc": "^14.0.0",
+    "nyc": "^15.1.0",
     "path": "^0.12.7",
     "prettier": "^1.12.1",
     "rimraf": "^2.6.2",
